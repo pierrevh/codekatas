@@ -6,7 +6,7 @@ import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.pvhees.katas.roman.Roman.toRoman;
+import static org.pvhees.katas.roman.Roman.*;
 
 public class RomanTest {
     @Test
@@ -32,5 +32,11 @@ public class RomanTest {
         assertEquals("IV", toRoman(4));
         assertEquals("IX", toRoman(9));
         assertEquals("MCMIL", toRoman(1949));
+    }
+
+    @Test
+    public void fromRoman() {
+        assertEquals(4, Roman.fromRoman("IV"));
+        assertEquals(1963, Roman.fromRoman("MCMLXIII"));
     }
 }
