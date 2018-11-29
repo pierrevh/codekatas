@@ -3,7 +3,7 @@ package org.pvhees.katas.scheduling;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class MultiProcessor {
+public class MultiProcessorScheduling {
 
     public List<Integer> verdeel(int aantalProcessors, List<Integer> totalLoad) {
         List<Integer> sortedTotal = new ArrayList<>(totalLoad);
@@ -11,19 +11,22 @@ public class MultiProcessor {
 
         // Using class Processor that encapsulates assigned load so we can update its load
         // without having to extract and re-insert into result list
-        List<Processor> result = new ArrayList<>();
+        List<Processor> processors = new ArrayList<>();
         for (int i = 0; i < aantalProcessors; i++) {
-            result.add(new Processor());
+            processors.add(new Processor());
         }
 
         for (int load: sortedTotal) {
-            Processor lowest = result.stream().min(Comparator.comparingInt(Processor::getLoad)).get();
+            Processor lowest = processors.stream().min(Comparator.comparingInt(Processor::getLoad)).get();
             lowest.addLoad(load);
         }
 
-        return result.stream()
+        List<Integer> collectedResult = processors.stream()
                 .map(Processor::getLoad)
                 .collect(Collectors.toList());
+        collectedResult.sort(Collections.reverseOrder()); // highest load first
+
+        return collectedResult;
     }
 
     private static class Processor {
