@@ -26,12 +26,10 @@ public class MultiProcessorScheduling {
             lowest.addLoad(load);
         }
 
-        List<Integer> collectedResult = processors.stream()
+        return processors.stream()
                 .map(Processor::getLoad)
+                .sorted(Collections.reverseOrder())
                 .collect(Collectors.toList());
-        collectedResult.sort(Collections.reverseOrder()); // highest load first
-
-        return collectedResult;
     }
 
     private static class Processor {
