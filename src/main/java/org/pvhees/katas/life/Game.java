@@ -2,6 +2,7 @@ package org.pvhees.katas.life;
 
 /**
  * Conway's Game Of Life
+ * Take 1, very much about implementation
  */
 public class Game {
     private Grid grid;

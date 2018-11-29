@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * Conway's Game Of Life
- * Take 2
+ * Take 2, more about behaviour
  */
 public class Game2 {
 

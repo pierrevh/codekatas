@@ -15,7 +15,6 @@ public class GameTest {
         Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
         assertEquals(GRID_WIDTH, game.getGridWidth());
         assertEquals(GRID_HEIGHT, game.getGridHeight());
-        // TODO ? expect all to be dead ? or need to set initial state also in constructor
     }
 
     @Test
