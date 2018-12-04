@@ -71,22 +71,13 @@ public class Game2 {
 
             int totalAlive = 0;
 
-            // count line above cell
-            if (row - 1 >= 0) {
-                if (col - 1 >= 0 && cells[row - 1][col - 1] == ALIVE) totalAlive++;
-                if (col >= 0 && cells[row - 1][col] == ALIVE) totalAlive++;
-                if (col + 1 < columns && cells[row - 1][col + 1] == ALIVE) totalAlive++;
-            }
-
-            // count line with cell
-            if (col - 1 >= 0 && cells[row][col - 1] == ALIVE) totalAlive++;
-            if (col + 1 < columns && cells[row][col + 1] == ALIVE) totalAlive++;
-
-            // count line under cell
-            if (row + 1 < columns) {
-                if (col - 1 >= 0 && cells[row + 1][col - 1] == ALIVE) totalAlive++;
-                if (col >= 0 && cells[row + 1][col] == ALIVE) totalAlive++;
-                if (col + 1 < columns && cells[row + 1][col + 1] == ALIVE) totalAlive++;
+            for (int currentRow = row - 1; currentRow <= row + 1; currentRow++) {
+                for (int currentCol = col - 1; currentCol <= col + 1; currentCol++) {
+                    if (currentCol == col && currentRow == row) continue; // skip the cell being investigated
+                    if (isValid(currentRow, currentCol) && isAlive(currentRow, currentCol)) {
+                        totalAlive++;
+                    }
+                }
             }
 
             return totalAlive;

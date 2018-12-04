@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 public class Game2Test {
     private Game2 game2;
 
-    // TODO split up test class into live cell, dead cell, edge-cells (this one not done yet)
+    // TODO split up test class into live cell, dead cells, an d to build: cells on the edge, some interesting patterns (acceptance test)
 
     @Before
     public void setUp() throws Exception {
@@ -92,5 +92,15 @@ public class Game2Test {
     public void deadCellWithFourLiveNeighboursStaysDead() {
         String newPlayField = game2.nextGeneration(3, 3, " X \nX  \nXX \n");
         assertTrue(newPlayField.charAt(5) == ' ');
+    }
+
+    @Test
+    public void gliderPattern() {
+        String startingPlayField = " X        \n  X       \nXXX       \n          \n          \n          \n          \n          \n          \n          \n";
+        String playField = startingPlayField;
+        for (int i = 0; i < 10; i++) {
+            System.out.println(playField);
+            playField = game2.nextGeneration(10, 10, playField);
+        }
     }
 }
