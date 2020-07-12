@@ -1,16 +1,15 @@
 package org.pvhees.katas;
 
 import java.util.Queue;
-import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class SearchDfs {
     private final int[][] input = new int[][]{
             {1, 2, 2, 3, 3},
             {2, 2, 2, 2, 3},
-            {5, 5, 5, 4, 4},
-            {7, 6, 6, 4, 4},
-            {7, 7, 8, 8, 8}
+            {4, 4, 4, 5, 5},
+            {6, 7, 7, 5, 5},
+            {6, 6, 8, 8, 8}
     };
     private final int rows = input.length;
     private final int cols = input[0].length;
@@ -23,18 +22,24 @@ public class SearchDfs {
 
     private void processComponents() {
         int componentCount = 0;
+        int maxItemCount = Integer.MIN_VALUE;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (!visited[i][j]) {
                     componentCount++;
-                    processComponent(i, j);
+                    int itemCount = processComponent(i, j);
+                    if (itemCount > maxItemCount) {
+                        maxItemCount = itemCount;
+                    }
+                    System.out.println("#items in component[" + componentCount + "] = " + itemCount);
                 }
             }
         }
         System.out.println("componentCount = " + componentCount);
+        System.out.println("Largest component has "+ maxItemCount + " items");
     }
 
-    private void processComponent(int i, int j) {
+    private int processComponent(int i, int j) {
         int itemCount = 0;
         Queue<Cell> frontier = new LinkedBlockingQueue<>();
         frontier.offer(new Cell(i, j));
@@ -46,7 +51,7 @@ public class SearchDfs {
                 checkNeighbours(current.i, current.j, input[current.i][current.j], frontier);
             }
         }
-        System.out.println("itemCount = " + itemCount);
+        return itemCount;
     }
 
     private void checkNeighbours(int i, int j, int value, Queue<Cell> frontier) {
