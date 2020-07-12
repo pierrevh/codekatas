@@ -1,5 +1,6 @@
 package org.pvhees.katas;
 
+import java.util.Objects;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -21,6 +22,7 @@ public class SearchDfs {
     }
 
     private void processComponents() {
+        System.out.println("DFS");
         int componentCount = 0;
         int maxItemCount = Integer.MIN_VALUE;
         for (int i = 0; i < rows; i++) {
@@ -36,7 +38,7 @@ public class SearchDfs {
             }
         }
         System.out.println("componentCount = " + componentCount);
-        System.out.println("Largest component has "+ maxItemCount + " items");
+        System.out.println("Largest component has " + maxItemCount + " items");
     }
 
     private int processComponent(int i, int j) {
@@ -45,11 +47,9 @@ public class SearchDfs {
         frontier.offer(new Cell(i, j));
         while (!frontier.isEmpty()) {
             Cell current = frontier.poll();
-            if (!visited[current.i][current.j]) {
-                itemCount++;
-                visited[current.i][current.j] = true;
-                checkNeighbours(current.i, current.j, input[current.i][current.j], frontier);
-            }
+            itemCount++;
+            visited[current.i][current.j] = true;
+            checkNeighbours(current.i, current.j, input[current.i][current.j], frontier);
         }
         return itemCount;
     }
@@ -60,8 +60,9 @@ public class SearchDfs {
         for (int x = 0; x < di.length; x++) {
             int newi = i + di[x];
             int newj = j + dj[x];
-            if (newi >= 0 && newi < rows && newj >= 0 && newj < cols && input[newi][newj] == value && !visited[newi][newj]) {
-                frontier.offer(new Cell(newi, newj));
+            Cell newCell = new Cell(newi, newj);
+            if (newi >= 0 && newi < rows && newj >= 0 && newj < cols && input[newi][newj] == value && !visited[newi][newj] && !frontier.contains(newCell)) {
+                frontier.offer(newCell);
             }
         }
     }
@@ -73,6 +74,19 @@ public class SearchDfs {
         public Cell(int i, int j) {
             this.i = i;
             this.j = j;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Cell cell = (Cell) o;
+            return i == cell.i && j == cell.j;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(i, j);
         }
     }
 }
