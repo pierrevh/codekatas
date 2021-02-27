@@ -26,16 +26,26 @@ public class Number359 {
 
     private int removeWord(Map<String, Long> letterCount, String word, String keyLetter) {
         Long count = letterCount.get(keyLetter);
-        if (count == null) return 0;
+        if (count == null || count == 0) return 0;
 
         for (String letter : word.split("")) {
-            letterCount.put(letter, letterCount.get(letter) - 1);
+            letterCount.put(letter, letterCount.get(letter) - count);
         }
         return count.intValue();
     }
 
     public static void main(String[] args) {
         Number359 number359 = new Number359();
-        System.out.println(number359.solve("niesevehrtfeev"));
+        expect("1", number359.solve("eno"));
+        expect("357", number359.solve("niesevehrtfeev"));
+        expect("333", number359.solve("threeehrteherte"));
+    }
+
+    private static void expect(String expected, String actual) {
+        if (expected.equals(actual)) {
+            System.out.println("OK");
+        } else {
+            System.out.println("Expected " + expected + " but got " + actual);
+        }
     }
 }
