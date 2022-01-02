@@ -1,9 +1,9 @@
-package org.pvhees.katas.arjancodes.cohesioncoupling;
+package org.pvhees.katas.arjancodes.cohesioncoupling.result;
 
 import java.util.*;
 
-import static org.pvhees.katas.arjancodes.cohesioncoupling.RandomUtils.randomDigits;
-import static org.pvhees.katas.arjancodes.cohesioncoupling.RandomUtils.randomLetters;
+import static org.pvhees.katas.arjancodes.RandomUtils.randomDigits;
+import static org.pvhees.katas.arjancodes.RandomUtils.randomLetters;
 
 public class VehicleRegistry {
     private static final List<VehicleInfo> VEHICLE_INFOS = List.of(

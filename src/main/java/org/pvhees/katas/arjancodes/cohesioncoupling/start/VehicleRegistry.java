@@ -1,4 +1,4 @@
-package org.pvhees.katas.arjancodes.cohesioncoupling.startofvideo;
+package org.pvhees.katas.arjancodes.cohesioncoupling.start;
 
 import java.util.Locale;
 import java.util.Random;

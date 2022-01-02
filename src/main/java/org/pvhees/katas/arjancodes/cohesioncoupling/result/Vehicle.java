@@ -1,4 +1,4 @@
-package org.pvhees.katas.arjancodes.cohesioncoupling;
+package org.pvhees.katas.arjancodes.cohesioncoupling.result;
 
 public class Vehicle {
     private final String id;

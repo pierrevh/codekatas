@@ -1,4 +1,4 @@
-package org.pvhees.katas.arjancodes.cohesioncoupling;
+package org.pvhees.katas.arjancodes;
 
 import java.util.Objects;
 import java.util.Random;

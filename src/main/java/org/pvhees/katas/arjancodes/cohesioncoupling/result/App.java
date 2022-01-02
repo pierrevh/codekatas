@@ -1,4 +1,4 @@
-package org.pvhees.katas.arjancodes.cohesioncoupling;
+package org.pvhees.katas.arjancodes.cohesioncoupling.result;
 
 public class App {
     // Video: https://www.youtube.com/watch?v=eiDyK_ofPPM&t=2s
