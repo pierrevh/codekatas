@@ -1,10 +1,9 @@
 package org.pvhees.katas.arjancodes.depinjectdepinv.start;
 
+// video: https://www.youtube.com/watch?v=2ejbLVkCndI
 public class PaymentProcessor {
-    private AuthorizerSms authorizer;
-
     public void pay(Order order) {
-        authorizer = new AuthorizerSms();
+        AuthorizerSms authorizer = new AuthorizerSms();
         authorizer.generateCode();
         authorizer.authorize();
         if (!authorizer.isAuthorized()) {
