@@ -13,8 +13,9 @@ public class AuthorizerSms {
         this.authorized = false;
     }
 
-    public void generateCode() {
+    public String generateCode() {
         code = RandomUtils.randomDigits(6);
+        return code;
     }
 
     public void authorize() {

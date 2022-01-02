@@ -4,7 +4,8 @@ package org.pvhees.katas.arjancodes.depinjectdepinv.start;
 public class PaymentProcessor {
     public void pay(Order order) {
         AuthorizerSms authorizer = new AuthorizerSms();
-        authorizer.generateCode();
+        String code = authorizer.generateCode();
+        System.out.println("code = " + code);
         authorizer.authorize();
         if (!authorizer.isAuthorized()) {
             throw new IllegalStateException("Not authorized");
