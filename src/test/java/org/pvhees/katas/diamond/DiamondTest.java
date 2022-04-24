@@ -1,8 +1,8 @@
 package org.pvhees.katas.diamond;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DiamondTest {
     @Test
@@ -15,8 +15,10 @@ public class DiamondTest {
         assertEquals("--a--\n-b-b-\nc---c\n-b-b-\n--a--\n", new Diamond().diamond('c', new WestersLowercaseAlfabet(), '-'));
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void failForInvalidCharacter() {
-        new Diamond().diamond('9', new WestersUppercaseAlfabet());
+        assertThrows(IllegalStateException.class, () ->
+                new Diamond().diamond('9', new WestersUppercaseAlfabet())
+        );
     }
 }

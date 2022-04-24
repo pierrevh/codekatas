@@ -1,11 +1,8 @@
 package org.pvhees.katas.roman;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.pvhees.katas.roman.Roman.*;
 
 public class RomanTest {

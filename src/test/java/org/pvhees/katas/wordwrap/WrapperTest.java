@@ -1,15 +1,15 @@
 package org.pvhees.katas.wordwrap;
 
-import org.junit.Test;
-import org.pvhees.katas.wordwrap.Wrapper;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class WrapperTest {
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void nullTextThrows() {
-        Wrapper.wrap(null, 0);
+        assertThrows(NullPointerException.class, () -> Wrapper.wrap(null, 0));
     }
 
     @Test

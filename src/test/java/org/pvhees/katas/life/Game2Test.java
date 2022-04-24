@@ -1,16 +1,16 @@
 package org.pvhees.katas.life;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Game2Test {
     private Game2 game2;
 
     // TODO split up test class into live cell, dead cells, an d to build: cells on the edge, some interesting patterns (acceptance test)
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         game2 = new Game2();
     }

@@ -1,15 +1,15 @@
 package org.pvhees.katas.codility.countriesiter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountryCounterQueueTest {
 
     private CountryCounterQueue subject;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         subject = new CountryCounterQueue();
     }

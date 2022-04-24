@@ -1,10 +1,9 @@
 package org.pvhees.katas.life;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class GameTest {
     private static final int GRID_WIDTH = 10;
@@ -37,36 +36,45 @@ public class GameTest {
         assertEquals(false, game.isAlive(x, y));
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void settingCellOutsideWidthGivesException() {
-        int x = GRID_WIDTH, y = 0;
-        Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+                    int x = GRID_WIDTH, y = 0;
+                    Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
 
-        game.markAlive(x, y);
+                    game.markAlive(x, y);
+                }
+        );
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void settingCellOutsideHeightGivesException() {
-        int x = 0, y = GRID_HEIGHT;
-        Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            int x = 0, y = GRID_HEIGHT;
+            Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
 
-        game.markAlive(x, y);
+            game.markAlive(x, y);
+        });
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void settingCellWithNegativeHeightIndexGivesException() {
-        int x = GRID_WIDTH, y = -1;
-        Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            int x = GRID_WIDTH, y = -1;
+            Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
 
-        game.markAlive(x, y);
+            game.markAlive(x, y);
+        });
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void settingCellWithNegativeWidthIndexGivesException() {
-        int x = -1, y = GRID_HEIGHT;
-        Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
+            int x = -1, y = GRID_HEIGHT;
+            Game game = new Game(GRID_WIDTH, GRID_HEIGHT);
 
-        game.markAlive(x, y);
+            game.markAlive(x, y);
+        });
     }
 
     // A live cell with fewer than two live neighbours dies

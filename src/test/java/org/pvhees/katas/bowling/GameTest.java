@@ -1,9 +1,10 @@
 package org.pvhees.katas.bowling;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameTest {
     private Game game;
@@ -23,7 +24,7 @@ public class GameTest {
         game.roll(10);
     }
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         game = new Game();
     }

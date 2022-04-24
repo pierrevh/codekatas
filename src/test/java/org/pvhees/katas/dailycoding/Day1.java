@@ -1,6 +1,7 @@
 package org.pvhees.katas.dailycoding;
+;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
 /**
  * This problem was recently asked by Google.
  *

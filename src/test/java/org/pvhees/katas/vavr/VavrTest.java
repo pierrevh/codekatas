@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.vavr.control.Either;
 import io.vavr.jackson.datatype.VavrModule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class VavrTest {
     Either<Error, Success> error() {

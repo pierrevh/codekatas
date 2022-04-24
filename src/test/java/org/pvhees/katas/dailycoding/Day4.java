@@ -1,6 +1,6 @@
 package org.pvhees.katas.dailycoding;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /*This problem was asked by Stripe.
 
